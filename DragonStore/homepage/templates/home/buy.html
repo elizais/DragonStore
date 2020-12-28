@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+
+        <div id="form">
+            <div class="content-lg container">
+                <p><h1>{{dragon_get.title}}</h1></p>
+                <p>Size: {{dragon_get.size}} ft</p>
+                <p>Prise: {{dragon_get.price}}$</p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Buy Now" />
+                </form>
+            </div>
+        </div>
+
+
+
+{% endblock content %}

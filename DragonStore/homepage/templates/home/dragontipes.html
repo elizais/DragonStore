@@ -1,0 +1,56 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<!-- For Table -->
+<link href="{% static 'homepage/home/css/main.css' %}" rel="stylesheet" type="text/css"/>
+
+    <div id="table" class="limiter">
+        <div class="container">
+            <div class="wrap-table100">
+                <div class="table">
+                    <a>
+                        <div class="row">
+                            <div class="cell">
+                                Dragon
+                            </div>
+                            <div class="cell">
+                               Size
+                            </div>
+                            <div class="cell">
+                                Tasty Food
+                            </div>
+                            <div class="cell">
+                                Prise
+                            </div>
+                            <div class="cell">
+                                Quantity
+                            </div>
+                        </div>
+                    </a>
+                    {% for dragon in dragons %}
+                    <a href="{% url 'form_buyer' dragon.pk %}" >
+                        <div class="row">
+                            <div class="cell" data-title="Dragon">
+                                <h2>{{dragon.title}}</h2>
+                                <p>{{dragon.content}}</p>
+                            </div>
+                            <div class="cell" data-title="Size">
+                                <p>{{dragon.size}}</p>
+                            </div>
+                            <div class="cell" data-title="Tasty Food">
+                                <p>{{dragon.teste_food}}</p>
+                            </div>
+                            <div class="cell" data-title="Prise">
+                                <p>{{dragon.price}}$</p>
+                            </div>
+                            <div class="cell" data-title="Quantity">
+                                <p>{{dragon.quantity_stok}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
